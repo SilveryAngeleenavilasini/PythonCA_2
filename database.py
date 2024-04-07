@@ -7,9 +7,8 @@ def create_connection():
 def create_tables():
     conn = create_connection()
     cursor = conn.cursor()
-    cursor.execute('DROP TABLE IF EXISTS doctors')
     cursor.execute('''
-        CREATE TABLE doctors (
+        CREATE TABLE IF NOT EXISTS doctors (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT,
             specialty TEXT,
